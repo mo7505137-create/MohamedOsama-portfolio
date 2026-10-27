@@ -1,100 +1,631 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#090b12" />
-  <meta name="description" content="MohamedOsama — Computer Science student at Suez Canal University. Projects, skills, and university assignments." />
-  <title>MohamedOsama | Student Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mohamed Osama | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #111111;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #111;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #555;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 90px 8%;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 35px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .welcome {
+            font-size: 15px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border: 2px solid #111;
+            text-decoration: none;
+            color: #111;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #111;
+            color: white;
+        }
+
+        .btn.dark {
+            background: #111;
+            color: white;
+        }
+
+        .btn.dark:hover {
+            background: white;
+            color: #111;
+        }
+
+        /* ABOUT */
+        .about-text {
+            max-width: 800px;
+            font-size: 18px;
+            color: #444;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            border: 1px solid #ddd;
+            padding: 25px;
+            text-align: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: #111;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            border: 1px solid #ddd;
+            padding: 30px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            border-color: #111;
+        }
+
+        .project h3 {
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        .project p {
+            color: #555;
+        }
+
+        /* TASKS */
+        .task {
+            border: 1px solid #ddd;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+
+        .task-number {
+            font-size: 35px;
+            font-weight: bold;
+            min-width: 55px;
+        }
+
+        .task h3 {
+            margin-bottom: 8px;
+        }
+
+        .task p {
+            color: #555;
+        }
+
+        .task a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #111;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .email {
+            color: #111;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #eee;
+            color: #555;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 18px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .task {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                text-align: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-  <header class="topbar">
-    <a class="brand" href="#home"><span class="brand-mark">M<span>.</span></span><span>MohamedOsama<span class="brand-sub">STUDENT PORTFOLIO</span></span></a>
-    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="nav">
-      <a class="active" href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#assignments">Assignments</a><a href="#contact">Contact</a>
-    </nav>
-    <a class="top-cta" href="#contact">Let's connect <span>↗</span></a>
-  </header>
 
-  <main>
-    <section class="hero section-wrap" id="home">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse"></span> COMPUTER SCIENCE STUDENT <span class="eyebrow-line"></span> EGYPT</div>
-        <h1>Building my path<br>in <span class="gradient-text">technology.</span></h1>
-        <p class="hero-lead">Hi, I'm <strong>MohamedOsama</strong> — a Computer Science student interested in software development, web technologies, and turning ideas into useful digital experiences.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#projects">Explore my work <span>↘</span></a><a class="button button-quiet" href="#about">More about me <span>→</span></a></div>
-        <div class="hero-meta"><div><span class="meta-label">CURRENTLY STUDYING</span><strong>Software Engineering</strong></div><div><span class="meta-label">UNIVERSITY</span><strong>Suez Canal University</strong></div><div><span class="meta-label">BASED IN</span><strong>Egypt 🇪🇬</strong></div></div>
-      </div>
-      <div class="hero-visual">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="code-window"><div class="window-top"><div class="window-dots"><i></i><i></i><i></i></div><span>about-me.js</span><span class="window-status">● ONLINE</span></div>
-          <div class="code-body"><div><span class="line-no">01</span><span class="code-purple">const</span> <span class="code-blue">developer</span> = {</div>
-          <div><span class="line-no">02</span>&nbsp; name: <span class="code-green">'MohamedOsama'</span>,</div>
-          <div><span class="line-no">03</span>&nbsp; role: <span class="code-green">'CS Student'</span>,</div>
-          <div><span class="line-no">04</span>&nbsp; university: <span class="code-green">'SCU'</span>,</div>
-          <div><span class="line-no">05</span>&nbsp; interests: [</div>
-          <div><span class="line-no">06</span>&nbsp;&nbsp; <span class="code-green">'Web Development'</span>,</div>
-          <div><span class="line-no">07</span>&nbsp;&nbsp; <span class="code-green">'Software Engineering'</span></div>
-          <div><span class="line-no">08</span>&nbsp; ],</div>
-          <div><span class="line-no">09</span>&nbsp; learning: <span class="code-orange">true</span></div>
-          <div><span class="line-no">10</span>};<span class="cursor">▍</span></div></div>
-          <div class="window-footer"><span>● Always learning</span><span>UTF-8&nbsp; · &nbsp;JavaScript</span></div>
+    <!-- NAVBAR -->
+    <nav>
+
+        <div class="logo">
+            Mohamed.
         </div>
-        <div class="floating-tag tag-top"><span>✳</span> Curious by nature</div><div class="floating-tag tag-bottom"><span>⌘</span> Learn · Build · Improve</div>
-      </div>
-      <a class="scroll-cue" href="#about"><span class="scroll-mouse"></span> SCROLL TO EXPLORE</a>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#tasks">My Tasks</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HOME -->
+    <section id="home">
+
+        <div class="container hero">
+
+            <div class="welcome">
+                WELCOME TO MY PORTFOLIO
+            </div>
+
+            <h1>
+                Hi, I'm Mohamed Osama
+            </h1>
+
+            <h2>
+                Beginner Web Developer & Programmer
+            </h2>
+
+            <p>
+                I build clean and modern websites using HTML and CSS.
+                I'm also learning C++ and improving my programming skills
+                one project at a time.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn dark">
+                    View My Projects
+                </a>
+
+                <a href="#contact" class="btn">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <section class="section-wrap section-block" id="about">
-      <div class="section-kicker">01 / A LITTLE INTRODUCTION</div>
-      <div class="section-heading-row"><h2>Not just learning code.<br><span class="muted">Learning how to think.</span></h2><p class="section-intro">I'm building a strong foundation in computer science one project, one assignment, and one new concept at a time.</p></div>
-      <div class="about-grid">
-        <article class="about-card about-main"><div class="card-icon">◈</div><div class="card-label">ABOUT ME</div><h3>A student with a builder's mindset.</h3><p>I'm studying Computer Science in the Software Engineering Department at Suez Canal University, Egypt. I enjoy understanding how things work, solving problems, and gradually turning what I learn into real projects.</p><p>This portfolio is my digital workspace: a place to showcase projects, keep university assignments organized, and document my progress.</p><div class="text-link" >CURRENT FOCUS <span>↘</span></div></article>
-        <article class="about-card mini-card"><div class="mini-number">01</div><div class="card-icon">⌘</div><h3>Problem solving</h3><p>Breaking problems down and finding clear, practical solutions.</p></article>
-        <article class="about-card mini-card"><div class="mini-number">02</div><div class="card-icon">⌁</div><h3>Web development</h3><p>Learning how to create useful, responsive web experiences.</p></article>
-        <article class="about-card mini-card"><div class="mini-number">03</div><div class="card-icon">↗</div><h3>Continuous growth</h3><p>Practicing consistently and improving with every project.</p></article>
-      </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="container">
+
+            <h2>
+                About Me
+            </h2>
+
+            <p class="about-text">
+
+                My name is Mohamed Osama.
+                I am interested in programming, web development,
+                and software engineering.
+
+                I am currently developing my programming skills,
+                learning C++, HTML, CSS and building practical projects
+                to improve my experience.
+
+            </p>
+
+        </div>
+
     </section>
 
-    <section class="section-wrap section-block" id="skills">
-      <div class="section-kicker">02 / MY TOOLKIT</div><div class="section-heading-row"><h2>Skills I'm <span class="gradient-text">building.</span></h2><p class="section-intro">A growing toolkit of programming languages, concepts, and tools from my studies and practice.</p></div>
-      <div class="skills-layout"><div class="skills-panel"><div class="panel-title"><span class="status-dot"></span> TECHNICAL SKILLS <span class="panel-caption">IN PROGRESS</span></div>
-        <div class="skill-row"><div class="skill-symbol html">5</div><div class="skill-info"><strong>HTML5</strong><span>Page structure & semantic markup</span></div><span class="skill-level">Learning</span></div>
-        <div class="skill-row"><div class="skill-symbol css">✳</div><div class="skill-info"><strong>CSS3</strong><span>Layouts, styling & responsive design</span></div><span class="skill-level">Learning</span></div>
-        <div class="skill-row"><div class="skill-symbol js">JS</div><div class="skill-info"><strong>JavaScript</strong><span>Interactive web pages</span></div><span class="skill-level">Learning</span></div>
-        <div class="skill-row"><div class="skill-symbol cpp">C+</div><div class="skill-info"><strong>C++</strong><span>Programming fundamentals & OOP</span></div><span class="skill-level">Learning</span></div>
-        <div class="skill-row"><div class="skill-symbol git">⌘</div><div class="skill-info"><strong>Git & GitHub</strong><span>Version control basics</span></div><span class="skill-level">Exploring</span></div>
-      </div><div class="principles-panel"><div class="panel-title">MY APPROACH</div><div class="principle"><span>01</span><div><strong>Understand the fundamentals</strong><p>Build knowledge that lasts beyond a single tutorial.</p></div></div><div class="principle"><span>02</span><div><strong>Practice by building</strong><p>Use small projects to turn theory into experience.</p></div></div><div class="principle"><span>03</span><div><strong>Keep improving</strong><p>Learn from mistakes, feedback, and iteration.</p></div></div><div class="learning-note"><span>✦</span> This list will grow as I learn new tools.</div></div></div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="container">
+
+            <h2>
+                My Skills
+            </h2>
+
+            <div class="skills">
+
+                <div class="skill">
+                    HTML
+                </div>
+
+                <div class="skill">
+                    CSS
+                </div>
+
+                <div class="skill">
+                    C++
+                </div>
+
+                <div class="skill">
+                    Problem Solving
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <section class="section-wrap section-block" id="projects">
-      <div class="section-kicker">03 / SELECTED WORK</div><div class="section-heading-row"><h2>Things I've <span class="muted">worked on.</span></h2><p class="section-intro">A home for my practice projects and future builds. Replace these starter cards with your real work as you complete it.</p></div>
-      <div class="project-grid">
-        <article class="project-card project-feature"><div class="project-art art-portfolio"><div class="art-browser"><div class="art-dots">● ● ●</div><div class="art-content"><span>MO / PORTFOLIO</span><b>Ideas into<br>digital reality.</b><i>HTML · CSS · JS</i></div></div><span class="art-index">PROJECT / 01</span></div><div class="project-details"><div class="project-type">PERSONAL WEBSITE</div><h3>Student Portfolio</h3><p>A personal website to introduce myself, present projects, and organize university assignments.</p><div class="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a class="project-link" href="#contact">Project details <span>↗</span></a></div></article>
-        <article class="project-card"><div class="project-art art-code"><div class="terminal"><div class="terminal-head">terminal <span>•••</span></div><code><span>></span> g++ main.cpp<br><span>></span> ./a.out<br><em>Hello, world!</em><b>_</b></code></div><span class="art-index">PROJECT / 02</span></div><div class="project-details"><div class="project-type">PROGRAMMING PRACTICE</div><h3>C++ Exercises</h3><p>Small exercises for practicing programming basics, functions, classes, and problem solving.</p><div class="tag-list"><span>C++</span><span>OOP</span><span>Practice</span></div><a class="project-link" href="#assignments">See coursework <span>↗</span></a></div></article>
-      </div>
-      <div class="honesty-note"><span>ⓘ</span> These are starter examples. Add links, screenshots, and descriptions of your actual projects before sharing your portfolio professionally.</div>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="container">
+
+            <h2>
+                My Projects
+            </h2>
+
+            <div class="projects">
+
+                <div class="project">
+
+                    <h3>
+                        My Portfolio Website
+                    </h3>
+
+                    <p>
+                        A personal portfolio website created using
+                        HTML and CSS to introduce myself, my skills
+                        and my programming projects.
+                    </p>
+
+                </div>
+
+
+                <div class="project">
+
+                    <h3>
+                        C++ Programming Projects
+                    </h3>
+
+                    <p>
+                        Programming exercises and small projects
+                        created while learning C++ fundamentals,
+                        arrays, functions, loops and pointers.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <section class="section-wrap section-block" id="assignments">
-      <div class="section-kicker">04 / UNIVERSITY WORKSPACE</div><div class="section-heading-row"><h2>My <span class="gradient-text">assignments.</span></h2><p class="section-intro">A tidy place for coursework and submissions. Add your PDF, Word, C++ or ZIP files and group them by subject.</p></div>
-      <div class="assignment-toolbar"><div><span class="status-dot"></span> COURSEWORK LIBRARY <span class="assignment-count">03 SUBJECT AREAS</span></div><span class="small-hint">STARTER TEMPLATE</span></div>
-      <div class="assignment-grid">
-        <article class="assignment-card"><div class="file-icon pdf">PDF</div><div class="assignment-meta"><span class="assignment-subject">WEB DEVELOPMENT</span><h3>HTML & Web Design</h3><p>Lecture notes, lab work, and website assignments.</p></div><a href="#contact" class="assignment-action" aria-label="Add web development assignment">↗</a><div class="assignment-bottom"><span>01 / SUBJECT</span><span>ADD YOUR FILES</span></div></article>
-        <article class="assignment-card"><div class="file-icon cpp-file">C++</div><div class="assignment-meta"><span class="assignment-subject">PROGRAMMING</span><h3>C++ & Data Structures</h3><p>Code exercises, solutions, and practical tasks.</p></div><a href="#contact" class="assignment-action" aria-label="Add programming assignment">↗</a><div class="assignment-bottom"><span>02 / SUBJECT</span><span>ADD YOUR FILES</span></div></article>
-        <article class="assignment-card"><div class="file-icon doc">DOC</div><div class="assignment-meta"><span class="assignment-subject">SOFTWARE ENGINEERING</span><h3>Reports & Documentation</h3><p>Reports, diagrams, presentations, and documents.</p></div><a href="#contact" class="assignment-action" aria-label="Add software engineering assignment">↗</a><div class="assignment-bottom"><span>03 / SUBJECT</span><span>ADD YOUR FILES</span></div></article>
-      </div>
-      <div class="upload-tip"><span>↳</span><div><strong>How to add your assignments</strong><p>Upload files to a Google Drive folder, set the sharing permission to “Anyone with the link” when appropriate, then add each file's link to the relevant subject card in <code>index.html</code>.</p></div></div>
+
+    <!-- TASKS -->
+    <section id="tasks">
+
+        <div class="container">
+
+            <h2>
+                My Tasks
+            </h2>
+
+            <p style="margin-bottom: 30px; color:#555;">
+                Here are my coding assignments and practical tasks.
+                More tasks will be added as I complete them.
+            </p>
+
+
+            <div class="task">
+
+                <div class="task-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>
+                        HTML Assignment
+                    </h3>
+
+                    <p>
+                        HTML headings, text formatting,
+                        lists, links and basic webpage structure.
+                    </p>
+
+                    <a href="#">
+                        View Task
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="task">
+
+                <div class="task-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>
+                        HTML Table Assignment
+                    </h3>
+
+                    <p>
+                        An HTML table with links, images
+                        and basic webpage elements.
+                    </p>
+
+                    <a href="#">
+                        View Task
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="task">
+
+                <div class="task-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>
+                        CSS Tasks
+                    </h3>
+
+                    <p>
+                        CSS assignments and website styling
+                        exercises will be added here.
+                    </p>
+
+                    <strong>
+                        Coming Soon
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="task">
+
+                <div class="task-number">
+                    04
+                </div>
+
+                <div>
+
+                    <h3>
+                        Programming Tasks
+                    </h3>
+
+                    <p>
+                        C++ and other programming assignments
+                        will be added here.
+                    </p>
+
+                    <strong>
+                        Coming Soon
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <section class="contact-section" id="contact"><div class="section-wrap contact-inner"><div class="section-kicker">05 / GET IN TOUCH</div><div class="contact-content"><div><h2>Let's connect<br><span class="gradient-text">and learn together.</span></h2><p>Have a project idea, feedback, or want to talk about technology? Feel free to reach out.</p></div><div class="contact-card"><div class="contact-card-top"><span class="status-dot"></span> OPEN TO CONNECTIONS</div><a href="mailto:your.email@example.com" class="contact-link"><span><small>EMAIL</small><strong>your.email@example.com</strong></span><b>↗</b></a><a href="#" class="contact-link"><span><small>GITHUB</small><strong>Add your GitHub profile</strong></span><b>↗</b></a><a href="#" class="contact-link"><span><small>LINKEDIN</small><strong>Add your LinkedIn profile</strong></span><b>↗</b></a><div class="contact-card-note">Replace the placeholders with your real contact details.</div></div></div><div class="footer-line"><a class="footer-brand" href="#home">MohamedOsama<span>.</span></a><span>DESIGNED & BUILT WITH CURIOSITY</span><a href="#home" class="back-top">BACK TO TOP ↑</a></div><div class="copyright">© <span id="year"></span> MohamedOsama. Student portfolio — always a work in progress.</div></div></section>
-  </main>
-  <script src="script.js"></script>
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="container contact">
+
+            <h2>
+                Contact Me
+            </h2>
+
+            <p>
+                You can contact me for learning and collaboration.
+            </p>
+
+            <p>
+                Email:
+                <span class="email">
+                    MohamedOsama@example.com
+                </span>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 Mohamed Osama. All rights reserved.
+
+    </footer>
+
+
 </body>
 </html>
