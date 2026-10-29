@@ -1,0 +1,26 @@
+HOW TO ADD THIS TASK TO YOUR PORTFOLIO
+
+Your portfolio repository:
+https://github.com/mo7505137-create/MohamedOsama-portfolio
+
+PART A — Upload the assignment files
+1. Open the repository above and choose the Code tab.
+2. Click Add file > Upload files. If Add file is not visible, use the link below the Quick setup message called "uploading an existing file".
+3. Upload BOTH files from this folder: html-assignment.html and page2.html.
+4. Click Commit changes.
+
+PART B — Connect the portfolio button to the assignment
+1. In your repository, open index.html.
+2. Click the pencil icon (Edit this file).
+3. Find the first task card titled "HTML Assignment".
+4. In that card only, change:
+       <a href="#">
+   to:
+       <a href="html-assignment.html">
+   Leave the second task card's link alone for now.
+5. Click Commit changes.
+
+After GitHub Pages finishes publishing, your task should open at:
+https://mo7505137-create.github.io/MohamedOsama-portfolio/html-assignment.html
+
+The assignment's "click here" link goes to page2.html, which is included in this folder.
